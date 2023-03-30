@@ -15,7 +15,8 @@ class App extends Component {
     return (
       <div>
         <General />
-
+        <Experience />
+        {/* <Education /> */}
 
       </div>
   )

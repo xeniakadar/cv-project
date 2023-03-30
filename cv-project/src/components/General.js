@@ -1,14 +1,16 @@
 
 import React, {Component} from 'react';
 
-class General extends Component{
-  state = {
-    name: '',
-    email: '',
-    phone: '',
-    isEditing: true
-  };
-
+class General extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: '',
+      email: '',
+      phone: '',
+      isEditing: true
+    }
+  }
 
   handleChange = (event) => {
     const { name, value } = event.target;
