@@ -5,3 +5,7 @@
 .edEx--data>span {
   font-weight: 600;
 }
+
+.main--container {
+  width: 590px;
+}

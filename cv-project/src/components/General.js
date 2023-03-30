@@ -38,7 +38,7 @@ class General extends Component {
     const {fullName, email, phone, isEditing} = this.state
     return (
       <div className='main--container'>
-        <h1 className='form--title'>CONTACT</h1>
+        {isEditing && <h1 className='form--title'>CONTACT</h1>}
         {isEditing ? (
           <div className='form--container'>
               <label htmlFor='fullNameInput' className='form--label'>First Name</label>
