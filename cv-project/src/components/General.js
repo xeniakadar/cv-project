@@ -1,5 +1,7 @@
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import '../styles/formStyles.css';
+import '../styles/generalStyles.css';
 
 class General extends Component {
   constructor() {
@@ -35,12 +37,11 @@ class General extends Component {
   render() {
     const {fullName, email, phone, isEditing} = this.state
     return (
-      <div>
+      <div className='main--container'>
+        <h1 className='form--title'>CONTACT</h1>
         {isEditing ? (
-          <div>
-            <h1>Contact</h1>
-            <form>
-              <label htmlFor='fullNameInput'>First Name</label>
+          <div className='form--container'>
+              <label htmlFor='fullNameInput' className='form--label'>First Name</label>
               <input
                 type='text'
                 id="fullNameInput"
@@ -48,7 +49,7 @@ class General extends Component {
                 value={fullName}
                 onChange={this.handleChange} />
 
-              <label htmlFor='emailInput'>Email</label>
+              <label htmlFor='emailInput' className='form--label'>Email</label>
               <input
                 type='text'
                 name="email"
@@ -56,22 +57,24 @@ class General extends Component {
                 value={email}
                 onChange={this.handleChange} />
 
-              <label htmlFor='phoneInput'>Phone Number</label>
+              <label htmlFor='phoneInput' className='form--label'>Phone Number</label>
               <input
                 type='text'
                 id="phoneInput"
                 name="phone"
                 value={phone}
                 onChange={this.handleChange} />
-            </form>
-            <button onClick={this.handleSubmit}>Submit</button>
+            <button className='form--submit-btn' onClick={this.handleSubmit}>Submit</button>
+
           </div>
         ) : (
-          <div>
-              <h1>Name: {fullName}</h1>
-              <h1>Email: {email}</h1>
-              <h1>Phone: {phone}</h1>
-              <button onClick={this.handleEdit}>Edit</button>
+          <div className='cv--container'>
+              <h4 className='cv--name'>{fullName}</h4>
+              <div className='cv--data-container'>
+                <h4 className='cv--data'><span>email:</span> {email}</h4>
+                <h4 className='cv--data'><span>phone:</span> {phone}</h4>
+              </div>
+                <button className='form--edit-btn' onClick={this.handleEdit}>Edit</button>
             </div>
         )}
 

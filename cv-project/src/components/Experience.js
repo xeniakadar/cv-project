@@ -1,5 +1,9 @@
 import React, {Component} from 'react'
 // import uniqid from 'uniqid'
+import '../styles/formStyles.css';
+import '../styles/edExStyles.css';
+
+
 class Experience extends Component {
   constructor() {
     super();
@@ -52,9 +56,10 @@ class Experience extends Component {
     return (
       <div>
         {/* function to handle rendering of the previous things in array and the editing? stuff */}
+        <h1 className='form--title'>EXPERIENCE</h1>
         {isEditing ? (
-        <div>
-          <h1>Experience</h1>
+        <div className='form--container'>
+
           <label htmlFor='titleInput'>Title</label>
           <input
             type={'text'}
@@ -79,16 +84,16 @@ class Experience extends Component {
             value={description}
             onChange={this.handleOnChange}
           />
-          <button onClick={this.handleSubmit}>Submit</button>
+          <button className='form--submit-btn' onClick={this.handleSubmit}>Submit</button>
         </div>
 
         ) : (
-        <div>
-          <h4>Title: {title}</h4>
-          <h4>Company: {company}</h4>
-          <h4>Description: {description}</h4>
-          <button onClick={this.handleEdit}>Edit</button>
-          <button onClick={this.handleAdd}>Add New Job Experience</button>
+        <div className='edEx--container'>
+          <h4 className='edEx--data'><span>Title:</span><br></br> {title}</h4>
+          <h4 className='edEx--data'><span>Company:</span><br></br> {company}</h4>
+          <h4 className='edEx--data'><span>Description:</span><br></br> {description}</h4>
+          <button className='form--edit-btn' onClick={this.handleEdit}>Edit</button>
+          {/* <button  onClick={this.handleAdd}>Add New Job Experience</button> */}
         </div>
 
         )}

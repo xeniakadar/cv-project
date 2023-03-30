@@ -1,0 +1,23 @@
+.cv--container {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+
+}
+
+.main--container {
+  width: 590px;
+}
+
+.cv--name {
+  font-size: 3.5rem;
+  font-weight: 100;
+  margin: 0px;
+}
+
+.cv--data{
+  font-weight: 100;
+}
+
+.cv--data>span {
+  font-weight: 600;
+}

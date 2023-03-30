@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import '../styles/formStyles.css';
+import '../styles/edExStyles.css';
 
 class Education extends Component {
   constructor() {
@@ -30,7 +32,7 @@ class Education extends Component {
   //Change logic: when you click ADD button, it display a new edit window?
 
 
-    handleChange = (event) => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
@@ -55,10 +57,10 @@ class Education extends Component {
     return (
 
       <div>
-        <h1>Education</h1>
+        <h1 className='form--title'>EDUCATION</h1>
         {isEditing ? (
-        <div>
-          <form>
+        <div className='form--container'>
+
             <label htmlFor='universityInput'>University</label>
             <input
               id='universityInput'
@@ -84,16 +86,16 @@ class Education extends Component {
               placeholder='YYYY-YYYY'
               onChange={this.handleChange}
             />
-          </form>
-          <button onClick={this.handleSubmit}>Submit</button>
+
+          <button className='form--submit-btn' onClick={this.handleSubmit}>Submit</button>
         </div>
 
         ) : (
         <div>
-          <h4>University: {university}</h4>
-          <h4>Degree: {degree} </h4>
-          <h4>Years: {years} </h4>
-          <button onClick={this.handleEdit}>Edit</button>
+          <h4 className='edEx--data'><span>University:</span><br></br> {university}</h4>
+          <h4 className='edEx--data'><span>Degree:</span><br></br> {degree} </h4>
+          <h4 className='edEx--data'><span>Years:</span><br></br> {years} </h4>
+          <button className='form--edit-btn' onClick={this.handleEdit}>Edit</button>
         </div>
 
         )}

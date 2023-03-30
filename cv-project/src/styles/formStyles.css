@@ -1,0 +1,43 @@
+body {
+ font-family: 'Poppins', sans-serif;
+}
+
+.form--container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form--title {
+  font-size: 1.7rem;
+}
+
+input {
+  width: 240px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: rgb(238, 236, 236);
+  border: none;
+  padding-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+.form--submit-btn, .form--edit-btn {
+  width: 100px;
+  height: 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #089FE0;
+  color: white;
+  cursor: pointer;
+}
+
+.form--edit-btn {
+  opacity: 0.2;
+
+  transition-duration: 0.2s;
+}
+.form--edit-btn:hover {
+  opacity: 1;
+}
