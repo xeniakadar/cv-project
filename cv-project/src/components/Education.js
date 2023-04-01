@@ -1,17 +1,16 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import '../styles/formStyles.css';
 import '../styles/edExStyles.css';
 
-class Education extends Component {
-  constructor() {
-    super();
-    this.state = {
-      university: '',
-      degree: '',
-      years: '',
-      isEditing: true
-    }
-  }
+function Education() {
+
+  const [formData, setFormData] = useState({
+    university: '',
+    degree: '',
+    years: '',
+    isEditing: true
+
+  })
 
   //handlechage
   //handlesubmit
@@ -32,78 +31,85 @@ class Education extends Component {
   //Change logic: when you click ADD button, it display a new edit window?
 
 
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
+  const handleChange = (event) => {
+    setFormData(prevFormData => {
+      return {
+        ...prevFormData,
+        [event.target.name] : [event.target.value]
+      }
+   })
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    setFormData(prevFormData => {
+      return {
+        ...prevFormData,
+        isEditing: false
+      }
     })
   }
 
-  handleSubmit = (event) => {
-    this.setState({
-      isEditing: false
+  const handleEdit = () => {
+    setFormData(prevFormData => {
+      return {
+        ...prevFormData,
+        isEditing: true
+      }
     })
   }
 
-  handleEdit = () => {
-    this.setState({
-      isEditing: true
-    })
-  }
 
 
-  render() {
-    const {university, degree, years, isEditing} = this.state
-    return (
+  // const {university, degree, years, isEditing} = this.state
+  return (
+    <div>
+      <h1 className='form--title'>EDUCATION</h1>
+      {formData.isEditing ? (
+      <div className='form--container'>
 
-      <div>
-        <h1 className='form--title'>EDUCATION</h1>
-        {isEditing ? (
-        <div className='form--container'>
+          <label htmlFor='universityInput'>University</label>
+          <input
+            id='universityInput'
+            type={'text'}
+            name='university'
+            value={formData.university}
+            onChange={handleChange}
+          />
+          <label htmlFor='degreeInput'>degree</label>
+          <input
+            id='degreeInput'
+            type={'text'}
+            name='degree'
+            value={formData.degree}
+            onChange={handleChange}
+          />
+          <label htmlFor='yearsInput'>years</label>
+          <input
+            id='yearsInput'
+            type={'text'}
+            name='years'
+            value={formData.years}
+            placeholder='YYYY-YYYY'
+            onChange={handleChange}
+          />
 
-            <label htmlFor='universityInput'>University</label>
-            <input
-              id='universityInput'
-              type={'text'}
-              name='university'
-              value={university}
-              onChange={this.handleChange}
-            />
-            <label htmlFor='degreeInput'>degree</label>
-            <input
-              id='degreeInput'
-              type={'text'}
-              name='degree'
-              value={degree}
-              onChange={this.handleChange}
-            />
-            <label htmlFor='yearsInput'>years</label>
-            <input
-              id='yearsInput'
-              type={'text'}
-              name='years'
-              value={years}
-              placeholder='YYYY-YYYY'
-              onChange={this.handleChange}
-            />
-
-          <button className='form--submit-btn' onClick={this.handleSubmit}>Submit</button>
-        </div>
-
-        ) : (
-        <div>
-          <h4 className='edEx--data'><span>University:</span><br></br> {university}</h4>
-          <h4 className='edEx--data'><span>Degree:</span><br></br> {degree} </h4>
-          <h4 className='edEx--data'><span>Years:</span><br></br> {years} </h4>
-          <button className='form--edit-btn' onClick={this.handleEdit}>Edit</button>
-        </div>
-
-        )}
-
-
+        <button className='form--submit-btn' onClick={handleSubmit}>Submit</button>
       </div>
-    )
-  }
+
+      ) : (
+      <div>
+        <h4 className='edEx--data'><span>University:</span><br></br> {formData.university}</h4>
+        <h4 className='edEx--data'><span>Degree:</span><br></br> {formData.degree} </h4>
+        <h4 className='edEx--data'><span>Years:</span><br></br> {formData.years} </h4>
+        <button className='form--edit-btn' onClick={handleEdit}>Edit</button>
+      </div>
+
+      )}
+
+
+    </div>
+  )
 }
 
 export default Education

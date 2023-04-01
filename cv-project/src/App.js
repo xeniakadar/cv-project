@@ -5,14 +5,24 @@ import General from './components/General'
 import Education from './components/Education'
 import Experience from './components/Experience'
 
-class App extends Component {
-  constructor() {
-    super();
+// class App extends Component {
+//   constructor() {
+//     super();
 
-  }
+//   }
 
-  render() {
-    return (
+//   render() {
+  //   return (
+  //     <div>
+  //       <General />
+  //       <Experience />
+  //       <Education />
+  //     </div>
+  // )
+// }
+
+function App() {
+  return (
       <div>
         <General />
         <Experience />
@@ -22,6 +32,6 @@ class App extends Component {
 }
 
 
-}
+
 
 export default App;
